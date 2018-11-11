@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "image": "/assets/images/resized/ant_mob.jpg",
+    "clicked": false
+  },
+  {
+    "id": 2,
+    "image": "/assets/images/resized/big_and_little.jpg",
+    "clicked": false
+  },
+  {
+    "id": 3,
+    "image": "/assets/images/resized/blast_and_meekly.jpg",
+    "clicked": false
+  },
+  {
+    "id": 4,
+    "image": "/assets/images/resized/dick_dastardly1.jpg",
+    "clicked": false
+  },
+  {
+    "id": 5,
+    "image": "/assets/images/resized/luke_and_blubber.jpg",
+    "clicked": false
+  },
+  {
+    "id": 6,
+    "image": "/assets/images/resized/muttley.jpg",
+    "clicked": false
+  },
+  {
+    "id": 7,
+    "image": "/assets/images/resized/pat_pending.jpg",
+    "clicked": false
+  },
+  {
+    "id": 8,
+    "image": "/assets/images/resized/penelope.jpg",
+    "clicked": false
+  },
+  {
+    "id": 9,
+    "image": "/assets/images/resized/peter_perfect1.jpg",
+    "clicked": false
+  },
+  {
+    "id": 10,
+    "image": "/assets/images/resized/red_max1.jpg",
+    "clicked": false
+  },
+  {
+    "id": 11,
+    "image": "/assets/images/resized/rock_gravel.jpg",
+    "clicked": false
+  },
+  {
+    "id": 12,
+    "image": "/assets/images/resized/rufus_saw.jpg",
+    "clicked": false
+  }
+]
