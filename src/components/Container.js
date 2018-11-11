@@ -1,8 +1,31 @@
 import React from 'react';
+import { GridList } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
-const Container = (props) => (
-  <React.Fragment>
-  </React.Fragment>
-);
+const styles = theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+  },
+  gridList: {
+    width: 450,
+    height: 450,
+  },
+});
 
-export default (Container);
+function Container(props) {
+  const { classes } = props;
+
+  return (
+    <div className={classes.root}>
+      <GridList cellHeight={160} className={classes.gridList} cols={4}>
+        {props.children}
+      </GridList>
+    </div>
+  );
+}
+
+export default withStyles(styles)(Container);

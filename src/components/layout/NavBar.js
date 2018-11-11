@@ -3,6 +3,10 @@ import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
+  appBar: {
+    flexGrow: 1,
+    borderRadius: 15,
+  },
   title: {
     flex: 8,
     marginLeft: 20,
@@ -23,7 +27,7 @@ function NavBar(props) {
   const { classes } = props;
 
   return (
-    <AppBar position="static" color="primary" className="top-bar">
+    <AppBar position="static" color="primary" className={classes.appBar}>
       <Toolbar>
         <Typography variant="h5" color="inherit" className={classes.title}>
           {props.title}

@@ -1,8 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { NavBar, Header, Footer } from './layout';
+import { withStyles } from '@material-ui/core/styles';
 import Container from './Container';
 import ClickItem from './ClickItem';
 import data from '../data.json';
+
+const styles = theme => ({
+  subheader: {
+    width: '100%',
+  },
+});
 
 class Root extends Component {
 
@@ -28,28 +35,67 @@ class Root extends Component {
     return data;
   };
 
+  handleCorrectGuess = newData => {
+    const { topScore, score } = this.state;
+    const newScore = score + 1;
+    const newTopScore = Math.max(newScore, topScore);
+
+    this.setState({
+      data: this.shuffleData(newData),
+      score: newScore,
+      topScore: newTopScore
+    });
+  };
+
+  handleIncorrectGuess = data => {
+    this.setState({
+      data: this.resetData(data),
+      score: 0
+    });
+  };
+
+  resetData = data => {
+    const resetData = data.map(item => ({ ...item, clicked: false }));
+    return this.shuffleData(resetData);
+  };
+
+  handleItemClick = id => {
+    let guessedCorrectly = false;
+    const newData = this.state.data.map(item => {
+      const newItem = { ...item };
+      if (newItem.id === id) {
+        if (!newItem.clicked) {
+          newItem.clicked = true;
+          guessedCorrectly = true;
+        }
+      }
+      return newItem;
+    });
+    guessedCorrectly
+      ? this.handleCorrectGuess(newData)
+      : this.handleIncorrectGuess(newData);
+  };
+
   render() {
-  return(
-    <Fragment>
-      <NavBar title="Wacky Races Clicky Game" score={this.state.score} topScore={this.state.topScore}/>
-      <Header />
-      <Container>
-        {/*
-        {this.state.data.map(item => (
-          <ClickItem
-            key={item.id}
-            id={item.id}
-            shake={!this.state.score && this.state.topScore}
-            handleClick={this.handleItemClick}
-            image={item.image}
-          />
-        ))}
-        */}
-      </Container>
-      <Footer />
-    </Fragment>
+    return (
+      <Fragment>
+        <NavBar title="Wacky Races Clicky Game" score={this.state.score} topScore={this.state.topScore} />
+        <Header />
+        <Container>
+          {this.state.data.map(item => (
+            <ClickItem
+              key={item.id}
+              id={item.id}
+              shake={!this.state.score && this.state.topScore}
+              handleClick={this.handleItemClick}
+              image={item.image}
+            />
+          ))}
+        </Container>
+        <Footer />
+      </Fragment>
     );
   }
 }
 
-export default (Root);
+export default withStyles(styles)(Root);

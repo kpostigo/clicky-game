@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 import pink from '@material-ui/core/colors/pink';

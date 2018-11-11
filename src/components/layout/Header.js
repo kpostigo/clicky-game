@@ -22,7 +22,7 @@ function Header(props) {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h1" color="secondary" className={classes.head}>
+      <Typography variant="h1" color="primary" className={classes.head}>
         Wacky Races Clicky Game
       </Typography>
       <Typography variant="h4" color="inherit" className={classes.body}>
